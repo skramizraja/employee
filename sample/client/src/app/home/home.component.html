@@ -1,0 +1,31 @@
+<div class="container mt-5">
+    <div *ngIf="!registerMode" style='text-align: center;'>
+        <h1>Student Register</h1>
+        <button (click)="registerToggle()" class="btn btn-primary btn-lg mr-2">Register</button>
+    </div>
+
+    <div *ngIf="registerMode" class="container">
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <app-register></app-register>
+            </div>
+        </div>
+        </div>
+
+        <div>
+          <form (ngSubmit)="searchEmployee(firstname)" #searchForm="ngForm">
+            <input type="text" name="firstname"  [(ngModel)]="firstname" placeholder="Type the first name to search">
+            <button type="submit">search</button>
+          </form>
+
+
+          <div *ngIf="users" class="container">
+            <h1>{{users.firstName}}</h1>
+            <h1>{{users._id}}</h1>
+            <h1>{{users._id.pid}}</h1>
+            </div>
+
+        </div>
+
+</div>
+
